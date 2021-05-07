@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengkk27.pwstorage.dao.ValidationMapper">
+
+    <insert id="addValidation" parameterType="map">
+        insert into validation (user_id, validation_question, validation_answer) values
+            (#{userId}, #{question} , #{answer});
+    </insert>
+
+</mapper>

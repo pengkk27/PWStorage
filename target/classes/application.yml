@@ -1,0 +1,18 @@
+spring:
+  banner:
+    location: classpath:banner
+  thymeleaf:
+    encoding: utf-8
+    mode: html
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/pwstorage?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: pengkk27
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.pengkk27.pwstorage.entity
+  configuration:
+    map-underscore-to-camel-case: true
