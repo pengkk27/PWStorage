@@ -6,4 +6,17 @@
         select * from account where user_id = #{userId} and class_id = #{classId};
     </select>
 
+    <insert id="addAccount" parameterType="Account">
+        insert into account (user_id, account_number, account_password, account_description, account_class, class_id) VALUES
+            (#{userId}, #{accountNumber}, #{accountPassword}, #{accountDescription}, #{accountClass}, #{classId});
+    </insert>
+
+    <delete id="deleteAccount" parameterType="int">
+        delete from account where account_id = #{accountId};
+    </delete>
+
+    <select id="getAccountById" parameterType="int" resultType="Account">
+        select * from account where account_id = #{accountId};
+    </select>
+
 </mapper>

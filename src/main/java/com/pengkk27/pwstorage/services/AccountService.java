@@ -22,4 +22,15 @@ public class AccountService {
         return accountMapper.getAllAccountByClassesId(map);
     }
 
+    public int addAccount(Account account) {
+        return accountMapper.addAccount(account);
+    }
+
+    public int deleteAccount(int accountId) {
+        return accountMapper.deleteAccount(accountId);
+    }
+
+    public Account getAccountById(int accountId) {
+        return accountMapper.getAccountById(accountId);
+    }
 }

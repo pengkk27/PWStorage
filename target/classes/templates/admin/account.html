@@ -23,40 +23,33 @@
     <div class="d-flex flex-column border shadow p-5">
         <div class="row my-4">
             <div class="col-3">账号</div>
-            <div class="col-7">1234567890</div>
-            <div class="d-flex col-2 justify-content-end">
-                <button class="btn-primary rounded-lg">修改信息</button>
-            </div>
-        </div>
-        <div class="row my-4">
-            <div class="col-3">用户名</div>
-            <div class="col-7">1234567890</div>
+            <div class="col-7" th:text="${account.accountNumber}"></div>
             <div class="d-flex col-2 justify-content-end">
                 <button class="btn-primary rounded-lg">修改信息</button>
             </div>
         </div>
         <div class="row my-4">
             <div class="col-3">密码</div>
-            <div class="col-7">1234567890</div>
+            <div class="col-7" th:text="${account.accountPassword}"></div>
             <div class="d-flex col-2 justify-content-end">
                 <button class="btn-primary rounded-lg">修改信息</button>
             </div>
         </div>
         <div class="row my-4">
             <div class="col-3">账号描述</div>
-            <div class="col-7">1234567890</div>
+            <div class="col-7" th:text="${account.accountDescription}"></div>
             <div class="d-flex col-2 justify-content-end">
                 <button class="btn-primary rounded-lg">修改信息</button>
             </div>
         </div>
     </div>
     <div class="d-flex justify-content-end my-4">
-        <button class="btn btn-primary mx-3">
+        <a th:href="@{'/account/getAccount/' + ${account.getAccountId()}}" class="btn btn-primary mx-3">
             返回
-        </button>
-        <button class="btn btn-primary">
+        </a>
+        <a th:href="@{'/account/delete/' + ${account.accountId} + '/' + ${account.classId}}" class="btn btn-primary">
             删除账号
-        </button>
+        </a>
     </div>
 </div>
 

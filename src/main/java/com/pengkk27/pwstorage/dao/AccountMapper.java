@@ -10,4 +10,10 @@ import java.util.Map;
 public interface AccountMapper {
 
     List<Account> getAllAccountByClassesId(Map map);
+
+    int addAccount(Account account);
+
+    int deleteAccount(int accountId);
+
+    Account getAccountById(int accountId);
 }

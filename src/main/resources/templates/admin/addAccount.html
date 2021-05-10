@@ -21,9 +21,10 @@
 <!--内容-->
 <div class="container my-5 py-5">
     <form th:action="@{/account/add}" class="d-flex flex-column border shadow p-5">
+        <input type="hidden" name="userId" th:value="${userId}">
         <div class="row my-4">
             <div class="col-3">账号</div>
-            <input name="accountId" placeholder="请输入账号">
+            <input name="accountNumber" placeholder="请输入账号">
         </div>
         <div class="row my-4">
             <div class="col-3">密码</div>
@@ -37,15 +38,11 @@
             <div class="col-3">账号描述</div>
             <input name="accountDescription" placeholder="请输入账号描述">
         </div>
+        <input type="hidden" name="classId" th:value="${classId}">
+        <button type="submit" class="btn btn-primary mx-3">
+            添加
+        </button>
     </form>
-    <div class="d-flex justify-content-end my-4">
-        <button class="btn btn-primary mx-3">
-            返回
-        </button>
-        <button class="btn btn-primary">
-            删除账号
-        </button>
-    </div>
 </div>
 
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
