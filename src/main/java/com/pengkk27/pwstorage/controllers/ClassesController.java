@@ -42,8 +42,11 @@ public class ClassesController {
     @RequestMapping("/toAccounts/{classId}")
     public String toAccounts(@PathVariable("classId") String classId, Model model) {
         List<Account> accounts = accountService.getAllAccountByClassesId(classId);
+        for (Account account : accounts) {
+            System.out.println(account);
+        }
         model.addAttribute("accounts", accounts);
-        return "/admin/classes";
+        return "admin/classes";
     }
 
 }

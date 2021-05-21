@@ -7,4 +7,12 @@
             (#{userId}, #{question} , #{answer});
     </insert>
 
+    <select id="getValidationId" resultType="int">
+        select validation_id from validation;
+    </select>
+
+    <select id="getValidationById" resultType="Validation" parameterType="int">
+        select * from validation where validation_id = #{id};
+    </select>
+
 </mapper>

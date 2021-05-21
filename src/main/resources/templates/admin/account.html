@@ -24,28 +24,22 @@
         <div class="row my-4">
             <div class="col-3">账号</div>
             <div class="col-7" th:text="${account.accountNumber}"></div>
-            <div class="d-flex col-2 justify-content-end">
-                <button class="btn-primary rounded-lg">修改信息</button>
-            </div>
         </div>
         <div class="row my-4">
             <div class="col-3">密码</div>
             <div class="col-7" th:text="${account.accountPassword}"></div>
-            <div class="d-flex col-2 justify-content-end">
-                <button class="btn-primary rounded-lg">修改信息</button>
-            </div>
         </div>
         <div class="row my-4">
             <div class="col-3">账号描述</div>
             <div class="col-7" th:text="${account.accountDescription}"></div>
-            <div class="d-flex col-2 justify-content-end">
-                <button class="btn-primary rounded-lg">修改信息</button>
-            </div>
         </div>
     </div>
     <div class="d-flex justify-content-end my-4">
         <a th:href="@{'/account/getAccount/' + ${account.getAccountId()}}" class="btn btn-primary mx-3">
             返回
+        </a>
+        <a th:href="@{'/account/toUpdate/' + ${account.getAccountId()}}" class="btn btn-primary mx-3">
+            修改信息
         </a>
         <a th:href="@{'/account/delete/' + ${account.accountId} + '/' + ${account.classId}}" class="btn btn-primary">
             删除账号

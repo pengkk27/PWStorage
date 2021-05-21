@@ -19,4 +19,10 @@
         select * from account where account_id = #{accountId};
     </select>
 
+    <update id="updateAccount" parameterType="Account">
+        update account
+        set account_number = #{accountNumber}, account_password = #{accountPassword}, account_description = #{accountDescription}, account_class = #{accountClass}
+        where account_id = #{accountId};
+    </update>
+
 </mapper>

@@ -20,31 +20,30 @@
 </nav>
 <!--内容-->
 <div class="container my-5 py-5">
-    <div class="d-flex flex-column border shadow p-5">
+    <form th:action="@{/account/update}" class="d-flex flex-column border shadow p-5">
+        <input type="hidden" name="userId" th:value="${account.userId}">
+        <input type="hidden" name="accountId" th:value="${account.accountId}">
         <div class="row my-4">
             <div class="col-3">账号</div>
-            <div class="col-7" th:text="${account.accountNumber}"></div>
+            <input name="accountNumber" th:placeholder="${account.accountNumber}" >
         </div>
         <div class="row my-4">
             <div class="col-3">密码</div>
-            <div class="col-7" th:text="${account.accountPassword}"></div>
+            <input name="accountPassword" th:placeholder="${account.accountPassword}">
+        </div>
+        <div class="row my-4">
+            <div class="col-3">账号类型</div>
+            <input name="accountClass" th:placeholder="${account.accountClass}">
         </div>
         <div class="row my-4">
             <div class="col-3">账号描述</div>
-            <div class="col-7" th:text="${account.accountDescription}"></div>
+            <input name="accountDescription" th:placeholder="${account.accountDescription}">
         </div>
-    </div>
-    <div class="d-flex justify-content-end my-4">
-        <a th:href="@{'/account/getAccount/' + ${account.getAccountId()}}" class="btn btn-primary mx-3">
-            返回
-        </a>
-        <a th:href="@{'/account/toUpdate/' + ${account.getAccountId()}}" class="btn btn-primary mx-3">
-            修改信息
-        </a>
-        <a th:href="@{'/account/delete/' + ${account.accountId} + '/' + ${account.classId}}" class="btn btn-primary">
-            删除账号
-        </a>
-    </div>
+        <input type="hidden" name="classId" th:value="${account.classId}">
+        <button type="submit" class="btn btn-primary mx-3">
+            修改
+        </button>
+    </form>
 </div>
 
 <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>

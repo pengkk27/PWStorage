@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/account")
@@ -33,6 +32,19 @@ public class AccountController {
     public String delete(@PathVariable("accountId") int accountId, @PathVariable("classId") int classId) {
         accountService.deleteAccount(accountId);
         return "redirect:/classes/toAccounts/" + classId;
+    }
+
+    @RequestMapping("/toUpdate/{accountId}")
+    public String toUpdate(@PathVariable("accountId") int accountId, Model model) {
+        Account account = accountService.getAccountById(accountId);
+        model.addAttribute("account", account);
+        return "/admin/updateAccount";
+    }
+
+    @RequestMapping("/update")
+    public String update(Account account) {
+        accountService.updateAccount(account);
+        return "redirect:/account/getAccount/" + account.getAccountId();
     }
 
     @RequestMapping("/getAccount/{accountId}")

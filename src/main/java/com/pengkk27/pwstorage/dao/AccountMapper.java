@@ -16,4 +16,6 @@ public interface AccountMapper {
     int deleteAccount(int accountId);
 
     Account getAccountById(int accountId);
+
+    int updateAccount(Account account);
 }
