@@ -4,8 +4,10 @@ import com.pengkk27.pwstorage.dao.AdminMapper;
 import com.pengkk27.pwstorage.services.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
@@ -13,8 +15,6 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public boolean adminLogin(String admin, String password) {
-        if (password.equals(adminMapper.getPasswordById(admin)))
-            return true;
-        return false;
+        return password.equals(adminMapper.getPasswordById(admin));
     }
 }
