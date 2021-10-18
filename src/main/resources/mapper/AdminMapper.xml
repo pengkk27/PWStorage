@@ -3,7 +3,7 @@
 <mapper namespace="com.pengkk27.pwstorage.dao.AdminMapper">
 
     <select id="getPasswordById" resultType="string">
-        select admin_password from admin where admin_id = #{adminId};
+        select pwstorage.admin_password from admin where admin_id = #{adminId};
     </select>
 
 </mapper>

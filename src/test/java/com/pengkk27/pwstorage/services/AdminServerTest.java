@@ -13,8 +13,5 @@ public class AdminServerTest {
     @Autowired
     private AdminService adminService;
 
-    @Test
-    public void adminLoginTest() {
-        System.out.println(adminService.adminLogin("admn", "123456"));
-    }
+
 }

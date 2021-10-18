@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengkk27.pwstorage.dao.UserMapper">
+
+    <insert id="registered" parameterType="user">
+        insert into pwstorage.user(user_id, user_name, user_password)
+        values (#{userId}, #{userName}, #{userPassword});
+    </insert>
+
+    <select id="getPasswordByUserId" resultType="string">
+        select user_password
+        from pwstorage.user
+        where user_id = #{userId};
+    </select>
+
+    <update id="updatePasswordByUserId">
+        update user
+        <set>
+            <if test="userPassword != null">user_password = #{userPassword}</if>
+        </set>
+        where user_id = #{userId};
+    </update>
+
+    <delete id="deleteUserById">
+        delete
+        from user
+        where user_id = #{userId};
+    </delete>
+
+    <insert id="addValidation" parameterType="question">
+        insert into pwstorage.question(question_id, question, answer, user_id)
+        values (#{question.questionId}, #{question.question}, #{question.answer}, #{userId});
+    </insert>
+
+    <update id="updateValidationById">
+        update question
+        <set>
+            <if test="question != null">question = #{question},</if>
+            <if test="question != null">answer = #{answer}</if>
+        </set>
+        where question_id = #{questionId};
+    </update>
+
+    <select id="getQuestionByUserId" resultType="question">
+        select question_id, question, answer
+        from question
+        where user_id = #{userId};
+    </select>
+
+    <delete id="deleteValidationById">
+        delete
+        from question
+        where question_id = #{questionId};
+    </delete>
+</mapper>
