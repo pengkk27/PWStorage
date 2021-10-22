@@ -2,6 +2,28 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.pengkk27.pwstorage.dao.AccountMapper">
 
+    <insert id="addAccount" parameterType="account">
+        insert into pwstorage.account(account_id, account_number, account_password, account_description, account_title,
+                                      category_id, user_id)
+        values (#{account.accountId}, #{account.accountNumber}, #{account.accountPassword},
+                #{account.accountDescription}, #{account.title}, #{categoryId}, #{userId});
+    </insert>
 
+    <update id="updateAccount" parameterType="account">
+        update pwstorage.account
+        <set>
+            <if test="accountNumber != null">set account_number = #{accountNumber},</if>
+            <if test="accountPassword != null">set account_password = #{accountPassword},</if>
+            <if test="accountDescription != null">set account_description = #{accountDescription},</if>
+            <if test="title != null">set account_title = #{title},</if>
+            <if test="categoryId != null">set category_id = #{categoryId}</if>
+        </set>
+        where account_id = #{accountId};
+    </update>
 
+    <delete id="deleteAccountById">
+        delete
+        from pwstorage.account
+        where account_id = #{accountId};
+    </delete>
 </mapper>
