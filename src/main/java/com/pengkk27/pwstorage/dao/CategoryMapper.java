@@ -8,11 +8,15 @@ import java.util.List;
 @Mapper
 public interface CategoryMapper {
 
-    void addCategory(Category category);
+    void addCategory(Category category, String userId);
 
     void updateCategory(Category category);
 
     List<Category> getAllCategory();
 
+    List<Category> getCategoriesByUserId(String userId);
+
     void deleteCategoryById(String categoryId);
+
+    void deleteCategoriesByUserId(String userId);
 }
