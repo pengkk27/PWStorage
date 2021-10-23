@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pengkk27.pwstorage.dao.CategoryMapper">
+
+    <insert id="addCategory" parameterType="category">
+        insert into pwstorage.category(category_id, category_name, user_id)
+        values (#{category.categoryId}, #{category.categoryName}, #{userId});
+    </insert>
+
+    <update id="updateCategory" parameterType="category">
+        update pwstorage.category
+        <set>
+            <if test="category.categoryName != null">
+                set category_name = #{category.categoryName}
+            </if>
+        </set>
+        where category_id = #{category.categoryId};
+    </update>
+
+    <select id="getAllCategory" resultType="category">
+        select category_id, category_name
+        from pwstorage.category;
+    </select>
+
+    <select id="getCategoriesByUserId" resultType="category">
+        select category_id, category_name
+        from pwstorage.category
+        where user_id = #{userId}
+    </select>
+
+    <delete id="deleteCategoryById">
+        delete
+        from pwstorage.category
+        where category_id = #{categoryId};
+    </delete>
+
+    <delete id="deleteCategoriesByUserId">
+        delete
+        from pwstorage.category
+        where user_id = #{userId};
+    </delete>
+</mapper>
