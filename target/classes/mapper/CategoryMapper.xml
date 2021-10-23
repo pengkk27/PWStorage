@@ -10,11 +10,11 @@
     <update id="updateCategory" parameterType="category">
         update pwstorage.category
         <set>
-            <if test="category.categoryName != null">
-                set category_name = #{category.categoryName}
+            <if test="categoryName != null">
+                category_name = #{categoryName}
             </if>
         </set>
-        where category_id = #{category.categoryId};
+        where category_id = #{categoryId};
     </update>
 
     <select id="getAllCategory" resultType="category">
