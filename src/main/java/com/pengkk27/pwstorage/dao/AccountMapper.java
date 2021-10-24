@@ -12,4 +12,6 @@ public interface AccountMapper {
 
     void deleteAccountById(String accountId);
 
+    void deleteAllAccounts(String userId);
+
 }

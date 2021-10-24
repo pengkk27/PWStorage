@@ -15,7 +15,7 @@
             <if test="account.accountNumber != null">account_number = #{account.accountNumber},</if>
             <if test="account.accountPassword != null">account_password = #{account.accountPassword},</if>
             <if test="account.accountDescription != null">account_description = #{account.accountDescription},</if>
-            <if test="account.title != null"> account_title = #{account.title},</if>
+            <if test="account.title != null">account_title = #{account.title},</if>
             <if test="categoryId != null">category_id = #{categoryId}</if>
         </set>
         where account_id = #{account.accountId};
@@ -25,5 +25,11 @@
         delete
         from pwstorage.account
         where account_id = #{accountId};
+    </delete>
+
+    <delete id="deleteAllAccounts">
+        delete
+        from pwstorage.account
+        where user_id = #{userId};
     </delete>
 </mapper>

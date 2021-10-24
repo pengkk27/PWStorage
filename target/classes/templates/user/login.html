@@ -17,7 +17,7 @@
 </nav>
 <!--内容-->
 <div class="container">
-    <form th:action="@{/login/log}" method="post" class="d-flex justify-content-center my-5 py-5 needs-validation" novalidate>
+    <form th:action="@{/login/log}" method="post" id="loginForm" class="d-flex justify-content-center my-5 py-5 needs-validation" novalidate>
         <div>
             <div class="shadow rounded my-5 py-3 px-4">
                 <div class="h3 text-center my-3">Welcome</div>
@@ -40,7 +40,7 @@
                     </div>
                 </div>
             </div>
-            <button type="sbumit" class="text-center shadow rounded btn btn-primary btn-block text-decoration-none">登
+            <button type="sbumit" class="text-center shadow rounded btn btn-primary btn-block text-decoration-none" id="submit-btn">登
                 录
             </button>
         </div>
@@ -56,8 +56,9 @@
         crossorigin="anonymous"></script>
 <script>
     (function() {
-
+        // 加载事件
         window.addEventListener('load', function () {
+            // 获取表单
             var forms = document.getElementsByClassName('needs-validation');
             var validation = Array.prototype.filter.call(forms, function (form) {
                 form.addEventListener('submit', function(event) {
@@ -70,6 +71,22 @@
             });
         }, false);
     })();
+
+    $('#submit-btn').click(function() {
+        $.ajax ({
+            type: "POST",
+            data: $('#loginForm').serialize(),
+            url: '/login/log',
+            success: function (data) {
+                if (data.code == 0) {
+
+                } else {
+                    
+                }
+            }
+        })
+    });
+
 </script>
 </body>
 </html>

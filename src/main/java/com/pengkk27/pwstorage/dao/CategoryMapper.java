@@ -2,7 +2,6 @@ package com.pengkk27.pwstorage.dao;
 
 import com.pengkk27.pwstorage.entity.Category;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
