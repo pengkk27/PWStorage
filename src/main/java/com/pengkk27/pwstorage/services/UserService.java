@@ -8,7 +8,9 @@ public interface UserService {
 
     void registered(String userName, String userPassword);
 
-    boolean loginValidate(String userId, String userPassword);
+    boolean loginValidate(String userName, String userPassword);
+
+    List<String> getUserIdAndUserNameByUserName(String userName);
 
     void changePassword(String userId, String userPassword);
 

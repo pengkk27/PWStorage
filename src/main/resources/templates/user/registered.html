@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="user/public :: header(注册)"></head>
+
 <body>
 <div th:insert="user/public :: nav-bar"></div>
 
+<!--内容-->
 <div class="container">
-    <form th:action="@{/login/user}" method="post" class="d-flex justify-content-center my-5 py-5 needs-validation" novalidate>
+    <form th:action="@{/users/registered}" method="post" class="d-flex justify-content-center my-5 py-5 needs-validation" novalidate>
         <div>
             <div class="shadow rounded mt-5 py-3 px-4">
-                <div class="h3 text-center my-3">Welcome</div>
-                <div class="input-group has-validation my-4" style="width: 20em !important">
+                <div class="h3 text-center my-3">注册</div>
+                <div class="input-group has-validation my-4" style="width: 30em !important">
                     <div class="input-group-prepend">
                         <span class="input-group-text">账号</span>
                     </div>
-                    <input type="text" name="username" class="form-control" placeholder="username" required>
+                    <input type="text" name="username" class="form-control" placeholder="设置账号" required>
                     <div class="invalid-feedback">
-                        请输入账号
+                        请设置您的账号
                     </div>
                 </div>
-                <div class="input-group has-validation my-4" style="width: 20em !important">
+                <div class="input-group has-validation my-4" style="width: 30em !important">
                     <div class="input-group-prepend">
                         <span class="input-group-text">密码</span>
                     </div>
-                    <input type="password" name="password" class="form-control" placeholder="password" required>
+                    <input type="password" name="password" class="form-control" placeholder="设置密码" required>
                     <div class="invalid-feedback">
-                        请输入密码
+                        请设置您的密码
                     </div>
                 </div>
                 <div class="h6 pl-2 text-danger" th:text="${msg}"></div>
             </div>
-            <div class="mt-2 mb-4 pr-2 d-flex justify-content-end"><a class="text-primary text-decoration-none" th:href="@{/users/toRegistered}">注册</a></div>
-            <button type="sbumit" class="text-center shadow rounded btn btn-primary btn-block text-decoration-none">登
-                录
+            <div class="mt-2 mb-4 pr-2 d-flex justify-content-end"><a class="text-primary text-decoration-none" th:href="@{/startUse}">已有账号，直接登陆</a></div>
+            <button type="sbumit" class="text-center shadow rounded btn btn-primary btn-block text-decoration-none">提
+                交
             </button>
         </div>
     </form>
 </div>
-
 
 <div th:include="user/public :: footer"></div>
 <script>
@@ -58,4 +60,5 @@
     })();
 </script>
 </body>
+
 </html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="user/public :: header(注册)"></head>
+<body>
+<div th:insert="user/public :: nav-bar"></div>
+
+
+<!--内容-->
+<div class="container">
+    <div class="d-flex justify-content-center my-5 py-5 border shadow rounded">
+        <h3>注册成功，点击<a th:href="@{/startUse}" class="text-primary text-decoration-none" target="_parent">登陆</a>跳转</h3>
+    </div>
+</div>
+
+
+
+<div th:include="user/public :: footer"></div>
+
+</body>
+
+</html>

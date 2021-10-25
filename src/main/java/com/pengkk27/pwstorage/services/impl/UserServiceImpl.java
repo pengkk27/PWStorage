@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Service
@@ -26,8 +28,18 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean loginValidate(String userId, String userPassword) {
-        return Objects.equals(Tools.getMd5String(userPassword), userMapper.getPasswordByUserId(userId));
+    public boolean loginValidate(String userName, String userPassword) {
+        return Objects.equals(Tools.getMd5String(userPassword), userMapper.getPasswordByUserName(userName));
+    }
+
+    @Override
+    public List<String> getUserIdAndUserNameByUserName(String userName) {
+        Map<String, String> map = userMapper.getUserIdAndUserNameByUserName(userName);
+        List<String> list = new ArrayList<>();
+        for (Map.Entry<String, String> s : map.entrySet()) {
+            list.add(s.getValue());
+        }
+        return list;
     }
 
     @Override

@@ -13,6 +13,16 @@
         where user_id = #{userId};
     </select>
 
+    <select id="getPasswordByUserName" resultType="string">
+        select user_password
+        from pwstorage.user
+        where user_name = #{userName};
+    </select>
+
+    <select id="getUserIdAndUserNameByUserName" resultType="map">
+        select user_id, user_name from pwstorage.user_view where user_name = #{userName};
+    </select>
+
     <update id="updatePasswordByUserId">
         update user
         <set>

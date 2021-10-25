@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface UserMapper {
@@ -13,6 +14,10 @@ public interface UserMapper {
     void registered(User user);
 
     String getPasswordByUserId(String userId);
+
+    String getPasswordByUserName(String userName);
+
+    Map<String, String> getUserIdAndUserNameByUserName(String userName);
 
     void updatePasswordByUserId(String userId, String userPassword);
 
